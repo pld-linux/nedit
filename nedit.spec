@@ -2,7 +2,7 @@ Summary:	Motif/X Window GUI editor
 Summary(pl):	Edytor tekstu  Motif/X Window
 Name:		nedit
 Version:	5.2
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/Editors
 Source0:	ftp://ftp.nedit.org/pub/v5_1_1/%{name}-%{version}-src.tar.gz
@@ -41,9 +41,10 @@ ca³o¶ci dope³nienia ca³a gama potê¿nych poleceñ edycyjnych.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_applnkdir}/Office/Editors,%{_pixmapsdir}}
 
-install source/{nedit,nc} $RPM_BUILD_ROOT%{_bindir}
+install source/nedit $RPM_BUILD_ROOT%{_bindir}
+install source/nc $RPM_BUILD_ROOT%{_bindir}/nclient 
 install doc/nedit.man $RPM_BUILD_ROOT%{_mandir}/man1/nedit.1x
-install doc/nc.man $RPM_BUILD_ROOT%{_mandir}/man1/nc.1x
+install doc/nc.man $RPM_BUILD_ROOT%{_mandir}/man1/nclient.1x
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Office/Editors
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
