@@ -9,11 +9,10 @@ Copyright:	distributable
 Group:		Applications/Editors
 Group(pl):      Aplikacje/Edytory
 URL:		http://www-pat.fnal.gov/nirvana/nedit.html
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
-%define		_applnkdir	%{_datadir}/applnk
 
 %description
 NEdit is a GUI style plain-text editor for X/Motif systems. 
