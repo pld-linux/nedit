@@ -53,7 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755, root, root) /usr/X11R6/bin/*
 /usr/X11R6/man/man1/*
 
-%config /etc/X11/wmconfig/nedit
+%config(missingok) /etc/X11/wmconfig/nedit
 
 %changelog
 * Mon Mar 22 1999 Piotr Czerwiñski <pius@pld.org.pl>
