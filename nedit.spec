@@ -3,14 +3,15 @@ Summary(pl):	Edytor tekstu  Motif/X Window
 Name:		nedit
 Version:	5.2
 Release:	1
-Source0:	ftp://ftp.nedit.org/pub/v5_1_1/%{name}-%{version}-src.tar.gz
-Source1:	%{name}.desktop
-Copyright:	distributable
+License:	GPL v2
 Group:		Applications/Editors
 Group(de):	Applikationen/Editors
 Group(pl):	Aplikacje/Edytory
 Group(pt):	Aplicações/Editores
-URL:		http://www-pat.fnal.gov/nirvana/nedit.html
+Source0:	ftp://ftp.nedit.org/pub/v5_1_1/%{name}-%{version}-src.tar.gz
+Source1:	%{name}.desktop
+Source2:	%{name}.png
+URL:		http://nedit.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	lesstif-devel >= 0.89.4
 
@@ -41,12 +42,14 @@ ca³o¶ci dope³nienia ca³a gama potê¿nych poleceñ edycyjnych.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_applnkdir}/Office/Editors}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_applnkdir}/Office/Editors,%{_pixmapsdir}}
 
 install source/{nedit,nc} $RPM_BUILD_ROOT%{_bindir}
 install doc/nedit.man $RPM_BUILD_ROOT%{_mandir}/man1/nedit.1x
 install doc/nc.man $RPM_BUILD_ROOT%{_mandir}/man1/nc.1x
+
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Office/Editors
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 gzip -9nf doc/nedit.doc README ReleaseNotes ChangeLog
 
@@ -59,3 +62,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 %{_applnkdir}/Office/Editors/nedit.desktop
+%{_pixmapsdir}/*
