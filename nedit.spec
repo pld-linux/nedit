@@ -1,10 +1,10 @@
 Summary:	Motif/X Window GUI editor
-Summary(pl):    Graficzny edytor tekstu dla Motif/X Window
+Summary(pl):    Edytor tekstu  Motif/X Window
 Name:		nedit
 Version:	5.0.2
 Release:	3
 Source0:	ftp://ftp.fnal.gov/pub/nedit/5_0_2/nedit_source.tar.gz
-Source1:	nedit.wmconfig
+Source1:	nedit.desktop
 Copyright:	distributable
 Group:		Applications/Editors
 Group(pl):      Aplikacje/Edytory
@@ -13,6 +13,7 @@ Buildroot:	/tmp/%{name}-%{version}-root
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
+%define		_applnkdir	%{_datadir}/applnk
 
 %description
 NEdit is a GUI style plain-text editor for X/Motif systems. 
@@ -38,12 +39,12 @@ make linux_nedit \
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,/etc/X11/wmconfig}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_applnkdir}/Editors}
 
 install -s source/{nedit,nc} $RPM_BUILD_ROOT%{_bindir}
 install nedit.man $RPM_BUILD_ROOT%{_mandir}/man1/nedit.1x
 install nc.man $RPM_BUILD_ROOT%{_mandir}/man1/nc.1x
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/nedit
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Editors
 
 gzip -9nf nedit.doc README \
 	$RPM_BUILD_ROOT%{_mandir}/man1/*
@@ -57,4 +58,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 
-%config(missingok) /etc/X11/wmconfig/nedit
+%{_applnkdir}/Editors/nedit.desktop
