@@ -6,6 +6,7 @@ Release:	3
 License:	GPL v2
 Group:		Applications/Editors
 Source0:	ftp://ftp.nedit.org/pub/v5_3/%{name}-%{version}-source.tar.gz
+# Source0-md5:	47afb4e07698f45e95d49c27f3d2f9e1
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-security.patch
