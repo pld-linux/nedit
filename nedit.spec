@@ -1,9 +1,9 @@
 Summary:	Motif/X Window GUI editor
 Summary(pl):	Edytor tekstu  Motif/X Window
 Name:		nedit
-Version:	5.0.2
-Release:	4
-Source0:	ftp://ftp.fnal.gov/pub/nedit/5_0_2/%{name}_source.tar.gz
+Version:	5.1.1
+Release:	1
+Source0:	ftp://ftp.fnal.gov/pub/nedit/5_0_2/%{name}-%{version}-src.tar.gz
 Source1:	nedit.desktop
 Copyright:	distributable
 Group:		Applications/Editors
@@ -11,6 +11,7 @@ Group(pt):	Aplicações/Editores
 Group(pl):	Aplikacje/Edytory
 URL:		http://www-pat.fnal.gov/nirvana/nedit.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRequires:  lesstif-devel >= 0.89.4
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
@@ -30,10 +31,11 @@ wykorzystanie myszy i zarz±dcy okien z wydajno¶ci± klawiatury, a
 ca³o¶ci dope³nienia ca³a gama potê¿nych poleceñ edycyjnych.
 
 %prep
-%setup -q -c -n nedit
+%setup -q 
+#-c -n nedit
 
 %build
-%{__make} linux_nedit \
+%{__make} linux \
 	CFLAGS="$RPM_OPT_FLAGS -I%{_includedir} -DUSE_DIRENT \
 	-DUSE_LPR_PRINT_CMD"
 
