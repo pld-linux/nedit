@@ -30,7 +30,7 @@ wykorzystanie myszy i zarz±dcy okien z wydajno¶ci± klawiatury, a
 ca³o¶ci dope³nienia ca³a gama potê¿nych poleceñ edycyjnych.
 
 %prep
-%setup -q 
+%setup -q
 
 %build
 %{__make} linux \
