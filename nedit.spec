@@ -12,7 +12,7 @@ Source2:	%{name}.png
 Patch0:		%{name}-security.patch
 Patch1:		%{name}-dynamic-motif.patch
 URL:		http://nedit.org/
-BuildRequires:	motif-devel
+BuildRequires:	motif-devel >= 1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -37,7 +37,7 @@ ca³o¶ci dope³nienia ca³a gama potê¿nych poleceñ edycyjnych.
 %build
 echo | %{__make} linux \
 	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -DUSE_DIRENT -DUSE_LPR_PRINT_CMD -DBUILD_UNTESTED_NEDIT" \
+	CFLAGS="%{rpmcflags} -DUSE_DIRENT -DUSE_LPR_PRINT_CMD -DBUILD_UNTESTED_NEDIT -DBUILD_BROKEN_NEDIT" \
 	LXLIB="-L/usr/X11R6/%{_lib}"
 
 %install
