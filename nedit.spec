@@ -33,7 +33,7 @@ ca³o¶ci dope³nienia ca³a gama potê¿nych poleceñ edycyjnych.
 %setup -q -c -n nedit
 
 %build
-make linux_nedit \
+%{__make} linux_nedit \
 	CFLAGS="$RPM_OPT_FLAGS -I%{_includedir} -DUSE_DIRENT \
 	-DUSE_LPR_PRINT_CMD"
 
