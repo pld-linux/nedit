@@ -5,9 +5,6 @@ Version:	5.2
 Release:	1
 License:	GPL v2
 Group:		Applications/Editors
-Group(de):	Applikationen/Editors
-Group(pl):	Aplikacje/Edytory
-Group(pt):	Aplicações/Editores
 Source0:	ftp://ftp.nedit.org/pub/v5_1_1/%{name}-%{version}-src.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
