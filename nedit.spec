@@ -2,15 +2,16 @@ Summary:	Motif/X Window GUI editor
 Summary(pl):	Edytor tekstu  Motif/X Window
 Name:		nedit
 Version:	5.3
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/Editors
 Source0:	ftp://ftp.nedit.org/pub/v5_3/%{name}-%{version}-source.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-security.patch
+Patch1:		%{name}-dynamic-motif.patch
 URL:		http://nedit.org/
-BuildRequires:	motif-devel 
+BuildRequires:	motif-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -33,10 +34,12 @@ ca³o¶ci dope³nienia ca³a gama potê¿nych poleceñ edycyjnych.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__make} linux \
 	CFLAGS="%{rpmcflags} -I%{_includedir} -DUSE_DIRENT \
+	CC="%{__cc}" \
 	-DUSE_LPR_PRINT_CMD"
 
 %install
@@ -51,14 +54,12 @@ install doc/nc.man $RPM_BUILD_ROOT%{_mandir}/man1/nclient.1x
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Office/Editors
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
-gzip -9nf doc/nedit.doc README ReleaseNotes ChangeLog
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz doc/*.gz
+%doc doc/nedit.doc README ReleaseNotes ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 %{_applnkdir}/Office/Editors/nedit.desktop
