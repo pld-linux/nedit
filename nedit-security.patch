@@ -5,7 +5,7 @@
  void PrintString(const char *string, int length, Widget parent, const char *jobName)
  {
 -    char tmpFileName[L_tmpnam];    /* L_tmpnam defined in stdio.h */
-+    char *tmpFileName=strdup(strcat(getenv("HOME"),"/tmp/neditXXXXXX"));
++    char *tmpFileName=strdup("/tmp/neditXXXXXX");
      FILE *fp;
      int fd;
  
