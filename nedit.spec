@@ -2,7 +2,7 @@ Summary:	Motif/X Window GUI editor
 Summary(pl):	Edytor tekstu z interfejsem graficznym Motif/X Window
 Name:		nedit
 Version:	5.4
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/Editors
 Source0:	ftp://ftp.nedit.org/pub/NEdit/v5_4/%{name}-%{version}-source.tar.bz2
