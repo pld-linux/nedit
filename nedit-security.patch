@@ -5,7 +5,7 @@
  void PrintString(const char *string, int length, Widget parent, const char *jobName)
  {
 -    char tmpFileName[L_tmpnam];    /* L_tmpnam defined in stdio.h */
-+    char *tmpFileName=strdup("/tmp/neditXXXXXX");
++    char *tmpFileName=strdup(strcat(getenv("HOME"),"/tmp/neditXXXXXX"));
      FILE *fp;
      int fd;
  
@@ -43,7 +43,7 @@
  		jobName, errorString());
  	fclose(fp); /* should call close(fd) in turn! */
      	remove(tmpFileName);
-+		write(fd, string, length);
++        free(tmpFileName);		
  	return;
      }
      
@@ -51,7 +51,7 @@
      if (fclose(fp) != 0) {
      	DialogF(DF_ERR, parent, 1, "Error closing temp. print file:\n%s",
  		"Dismiss", errorString());
-+		write(fd, string, length);		
++        free(tmpFileName);		
      	remove(tmpFileName);
  	return;
      }
@@ -59,7 +59,7 @@
      PrintFile(parent, tmpFileName, jobName);
      remove(tmpFileName);
  #endif /*VMS*/
-+	write(fd, string, length);
++        free(tmpFileName);		
      return;
  }
  
