@@ -7,7 +7,6 @@ License:	GPL v2
 Group:		Applications/Editors
 Source0:	ftp://ftp.nedit.org/pub/NEdit/v5_5/%{name}-%{version}-src.tar.bz2
 # Source0-md5:	48cb3dce52d44988f3a4d7c6f47b6bbe
-# Source0-size:	1124825
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-security.patch
