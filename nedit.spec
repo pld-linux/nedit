@@ -1,7 +1,7 @@
 Summary:	Motif/X Window GUI editor
 Summary(pl):	Edytor tekstu  Motif/X Window
 Name:		nedit
-Version:	5.1.1
+Version:	5.2
 Release:	1
 Source0:	ftp://ftp.nedit.org/pub/v5_1_1/%{name}-%{version}-src.tar.gz
 Source1:	%{name}.desktop
@@ -33,7 +33,6 @@ ca³o¶ci dope³nienia ca³a gama potê¿nych poleceñ edycyjnych.
 
 %prep
 %setup -q 
-#-c -n nedit
 
 %build
 %{__make} linux \
@@ -45,19 +44,18 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_applnkdir}/Office/Editors}
 
 install source/{nedit,nc} $RPM_BUILD_ROOT%{_bindir}
-install nedit.man $RPM_BUILD_ROOT%{_mandir}/man1/nedit.1x
-install nc.man $RPM_BUILD_ROOT%{_mandir}/man1/nc.1x
+install doc/nedit.man $RPM_BUILD_ROOT%{_mandir}/man1/nedit.1x
+install doc/nc.man $RPM_BUILD_ROOT%{_mandir}/man1/nc.1x
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Office/Editors
 
-gzip -9nf nedit.doc README
+gzip -9nf doc/nedit.doc README ReleaseNotes ChangeLog
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc nedit.doc.gz README.gz
+%doc *.gz doc/*.gz
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
-
 %{_applnkdir}/Office/Editors/nedit.desktop
