@@ -2,7 +2,7 @@ Summary:	Motif/X Window GUI editor
 Summary(pl):	Edytor tekstu  Motif/X Window
 Name:		nedit
 Version:	5.3
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Applications/Editors
 Source0:	ftp://ftp.nedit.org/pub/v5_3/%{name}-%{version}-source.tar.gz
@@ -44,14 +44,14 @@ ca³o¶ci dope³nienia ca³a gama potê¿nych poleceñ edycyjnych.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_applnkdir}/Office/Editors,%{_pixmapsdir}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_applnkdir}/Editors,%{_pixmapsdir}}
 
 install source/nedit $RPM_BUILD_ROOT%{_bindir}
 install source/nc $RPM_BUILD_ROOT%{_bindir}/nclient 
 install doc/nedit.man $RPM_BUILD_ROOT%{_mandir}/man1/nedit.1x
 install doc/nc.man $RPM_BUILD_ROOT%{_mandir}/man1/nclient.1x
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Office/Editors
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Editors
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
@@ -62,5 +62,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/nedit.doc README ReleaseNotes ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
-%{_applnkdir}/Office/Editors/nedit.desktop
+%{_applnkdir}/Editors/nedit.desktop
 %{_pixmapsdir}/*
