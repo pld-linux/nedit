@@ -30,6 +30,9 @@ install -s source/{nedit,nc} $RPM_BUILD_ROOT/usr/X11R6/bin
 install nedit.man $RPM_BUILD_ROOT/usr/X11R6/man/man1/nedit.1x
 install nc.man $RPM_BUILD_ROOT/usr/X11R6/man/man1/nc.1x
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %files
 %attr(644, root, root, 755) %doc nedit.doc README
 %attr(644, root,  man) /usr/X11R6/man/man1/*
