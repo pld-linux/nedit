@@ -1,9 +1,8 @@
-%define rc	rc2
 Summary:	Motif/X Window GUI editor
 Summary(pl):	Edytor tekstu z interfejsem graficznym Motif/X Window
 Name:		nedit
 Version:	5.5
-Release:	0.%{rc}.1
+Release:	1
 License:	GPL v2
 Group:		Applications/Editors
 Source0:	ftp://ftp.nedit.org/pub/NEdit/v5_5/%{name}-%{version}-src.tar.bz2
