@@ -4,14 +4,15 @@ Name:		nedit
 Version:	5.1.1
 Release:	1
 Source0:	ftp://ftp.nedit.org/pub/v5_1_1/%{name}-%{version}-src.tar.gz
-Source1:	nedit.desktop
+Source1:	%{name}.desktop
 Copyright:	distributable
 Group:		Applications/Editors
-Group(pt):	Aplicações/Editores
+Group(de):	Applikationen/Editors
 Group(pl):	Aplikacje/Edytory
+Group(pt):	Aplicações/Editores
 URL:		http://www-pat.fnal.gov/nirvana/nedit.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-BuildRequires:  lesstif-devel >= 0.89.4
+BuildRequires:	lesstif-devel >= 0.89.4
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
@@ -36,20 +37,19 @@ ca³o¶ci dope³nienia ca³a gama potê¿nych poleceñ edycyjnych.
 
 %build
 %{__make} linux \
-	CFLAGS="$RPM_OPT_FLAGS -I%{_includedir} -DUSE_DIRENT \
+	CFLAGS="%{rpmcflags} -I%{_includedir} -DUSE_DIRENT \
 	-DUSE_LPR_PRINT_CMD"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_applnkdir}/Office/Editors}
 
-install -s source/{nedit,nc} $RPM_BUILD_ROOT%{_bindir}
+install source/{nedit,nc} $RPM_BUILD_ROOT%{_bindir}
 install nedit.man $RPM_BUILD_ROOT%{_mandir}/man1/nedit.1x
 install nc.man $RPM_BUILD_ROOT%{_mandir}/man1/nc.1x
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Office/Editors
 
-gzip -9nf nedit.doc README \
-	$RPM_BUILD_ROOT%{_mandir}/man1/*
+gzip -9nf nedit.doc README
 
 %clean
 rm -rf $RPM_BUILD_ROOT
