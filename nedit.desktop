@@ -34,3 +34,4 @@ Terminal=0
 TerminalOptions=
 Type=Application
 WmCommand=
+# vi: encoding=utf-8
