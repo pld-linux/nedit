@@ -38,8 +38,8 @@ ca³o¶ci dope³nienia ca³a gama potê¿nych poleceñ edycyjnych.
 
 %build
 %{__make} linux \
-	CFLAGS="%{rpmcflags} -I%{_includedir} -DUSE_DIRENT \
 	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags} -I%{_includedir} -DUSE_DIRENT \
 	-DUSE_LPR_PRINT_CMD"
 
 %install
