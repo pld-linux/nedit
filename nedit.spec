@@ -54,31 +54,3 @@ rm -rf $RPM_BUILD_ROOT
 /usr/X11R6/man/man1/*
 
 %config(missingok) /etc/X11/wmconfig/nedit
-
-%changelog
-* Mon Mar 22 1999 Piotr Czerwiñski <pius@pld.org.pl>
-  [5.0.2-2]
-- added wmconfig file,
-- added pl translation,
-- added %defattr description in %files,
-- removed man group from man pages,
-- added gzipping man pages and documentation,
-- cosmetic changes.
-
-* Tue Sep 15 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [5.02-1]
-- added -q %setup parameter,
-- changed Buildroot to /tmp/%%{name}-%%{version}-root,
-  subpackage,
-- added using $RPM_OPT_FLAGS during compile,
-- added full %attr description in %files.
-
-* Sat Mar 07 1998 Troy Benjegedes <troybenj@iastate.edu>
-- Updated to nedit 5.01 (crashing bugfixes for Linux)
-
-* Wed Jul 23 1997 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-- all rewrited for using Buildroot,
-- removed %ifarch from %prep; removed paching source,
-- nedit is dynamically linked with lesstif,
-- removed "ExclusiveArch: i386",
-- added %attr macros in %files (allows build package from non root account).
