@@ -46,7 +46,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_applnkdir}/Editors,%{_pixmapsdir}}
 
 install source/nedit $RPM_BUILD_ROOT%{_bindir}
-install source/nc $RPM_BUILD_ROOT%{_bindir}/nclient 
+install source/nc $RPM_BUILD_ROOT%{_bindir}/nclient
 install doc/nedit.man $RPM_BUILD_ROOT%{_mandir}/man1/nedit.1x
 install doc/nc.man $RPM_BUILD_ROOT%{_mandir}/man1/nclient.1x
 
