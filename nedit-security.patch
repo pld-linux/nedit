@@ -1,15 +1,15 @@
---- nedit-5.3/source/file.c.orig	Mon Apr 15 12:46:35 2002
-+++ nedit-5.3/source/file.c	Thu Jul 18 21:55:58 2002
-@@ -1066,7 +1066,7 @@
+--- nedit-5.4/source/file.c.orig	2003-09-28 16:18:12.000000000 +0200
++++ nedit-5.4/source/file.c	2004-04-02 21:42:10.821204032 +0200
+@@ -1218,7 +1218,7 @@
  */
  void PrintString(const char *string, int length, Widget parent, const char *jobName)
  {
 -    char tmpFileName[L_tmpnam];    /* L_tmpnam defined in stdio.h */
-+    char *tmpFileName=strdup("/tmp/neditXXXXXX");
++    char tmpFileName[strlen("/tmp/neditXXXXXX") + 2] = "/tmp/neditXXXXXX";
      FILE *fp;
      int fd;
  
-@@ -1077,17 +1077,13 @@
+@@ -1229,14 +1229,10 @@
  	    1. Create a filename
  	    2. Open the file with the O_CREAT|O_EXCL flags
  	So all an attacker can do is a DoS on the print function. */
@@ -22,44 +22,7 @@
 -#else
 -    if ((fd = open(tmpFileName, O_CREAT|O_EXCL|O_WRONLY, S_IRUSR | S_IWUSR)) < 0 || (fp = fdopen(fd, "w")) == NULL)
 -#endif /* VMS */
--    {
-+    if ((fp = fdopen(fd, "w")) == NULL) {
-     	DialogF(DF_WARN, parent, 1, "Unable to write file for printing:\n%s",
- 		"Dismiss", errorString());
-+        free(tmpFileName);		
-         return;
-     }
- 
-@@ -1097,7 +1093,7 @@
-     
-     /* write to the file */
- #ifdef IBM_FWRITE_BUG
--    write(fileno(fp), string, length);
-+    write(fd, string, length);	
- #else
-     fwrite(string, sizeof(char), length, fp);
- #endif
-@@ -1106,6 +1102,7 @@
- 		jobName, errorString());
- 	fclose(fp); /* should call close(fd) in turn! */
-     	remove(tmpFileName);
-+        free(tmpFileName);		
- 	return;
-     }
-     
-@@ -1113,6 +1110,7 @@
-     if (fclose(fp) != 0) {
-     	DialogF(DF_ERR, parent, 1, "Error closing temp. print file:\n%s",
- 		"Dismiss", errorString());
-+        free(tmpFileName);		
-     	remove(tmpFileName);
- 	return;
-     }
-@@ -1125,6 +1123,7 @@
-     PrintFile(parent, tmpFileName, jobName);
-     remove(tmpFileName);
- #endif /*VMS*/
-+        free(tmpFileName);		
-     return;
- }
- 
++    if ((fp = fdopen(fd, "w")) == NULL)
+     {
+         DialogF(DF_WARN, parent, 1, "Error while Printing",
+                 "Unable to write file for printing:\n%s", "Dismiss",

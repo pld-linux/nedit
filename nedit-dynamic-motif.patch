@@ -1,10 +1,13 @@
---- nedit-5.3/makefiles/Makefile.linux~	Wed Aug 28 00:39:26 2002
-+++ nedit-5.3/makefiles/Makefile.linux	Wed Aug 28 00:39:26 2002
-@@ -16,6 +16,6 @@
- #
+--- nedit-5.4/makefiles/Makefile.linux.orig	2003-05-20 02:27:56.000000000 +0200
++++ nedit-5.4/makefiles/Makefile.linux	2004-04-02 21:24:31.094307008 +0200
+@@ -20,8 +20,9 @@
  CFLAGS=-O -I/usr/X11R6/include -DUSE_DIRENT -DUSE_LPR_PRINT_CMD
+ 
  ARFLAGS=-urs
++LXLIB=-L/usr/X11R6/lib
+ 
 -LIBS= -L/usr/X11R6/lib -Wl,-Bstatic -lXm -Wl,-Bdynamic -lXp -lXpm -lXext -lXt -lSM -lICE -lX11 -lm
-+LIBS=-L/usr/X11R6/lib -lXm -lXp -lXpm -lXext -lXt -lSM -lICE -lX11 -lm
++LIBS= $(LXLIB) -lXm -lXp -lXpm -lXext -lXt -lSM -lICE -lX11 -lm
  
  include Makefile.common
+ 
