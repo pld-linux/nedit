@@ -55,4 +55,4 @@ rm -rf $RPM_BUILD_ROOT
 - removed %ifarch from %prep; removed paching source,
 - nedit is dynamically linked with lesstif,
 - removed "ExclusiveArch: i386",
-- added %attr macros in %files (allow build package from non root account).
+- added %attr macros in %files (allows build package from non root account).
