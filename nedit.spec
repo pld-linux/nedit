@@ -3,7 +3,7 @@ Summary(pl):	Edytor tekstu  Motif/X Window
 Name:		nedit
 Version:	5.1.1
 Release:	1
-Source0:	ftp://ftp.fnal.gov/pub/nedit/5_0_2/%{name}-%{version}-src.tar.gz
+Source0:	ftp://ftp.nedit.org/pub/v5_1_1/%{name}-%{version}-src.tar.gz
 Source1:	nedit.desktop
 Copyright:	distributable
 Group:		Applications/Editors
