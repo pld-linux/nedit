@@ -8,9 +8,9 @@ Group:		Applications/Editors
 Source0:	ftp://ftp.nedit.org/pub/v5_3/%{name}-%{version}-source.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
-#Patch0:		%{name}-security.patch
+Patch0:		%{name}-security.patch
 URL:		http://nedit.org/
-#BuildRequires:	lesstif-devel >= 0.89.4
+BuildRequires:	motif-devel 
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -32,7 +32,7 @@ ca³o¶ci dope³nienia ca³a gama potê¿nych poleceñ edycyjnych.
 
 %prep
 %setup -q
-#%patch0 -p1
+%patch0 -p1
 
 %build
 %{__make} linux \
