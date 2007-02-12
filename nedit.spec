@@ -1,7 +1,7 @@
 # TODO
 # - menu Shell items require csh, remove that dependency
 Summary:	Motif/X Window GUI editor
-Summary(pl):	Edytor tekstu z interfejsem graficznym Motif/X Window
+Summary(pl.UTF-8):   Edytor tekstu z interfejsem graficznym Motif/X Window
 Name:		nedit
 Version:	5.5
 Release:	2
@@ -25,12 +25,12 @@ Windows style of interface, combining full use of the mouse and window
 manager, with keystroke efficiency and a full complement of powerful
 editing commands.
 
-%description -l pl
-NEdit to edytor tekstu o graficznym interfejsie dla systemÛw X/Motif.
-Jest bardzo prosty w uøyciu, zw≥aszcza dla osÛb zaznajomionych z
-interfejsami w stylu Macintosha czy MS Windows. £±czy w sobie pe≥ne
-wykorzystanie myszy i zarz±dcy okien z wydajno∂ci± klawiatury, a
-ca≥o∂ci dope≥nienia ca≥a gama potÍønych poleceÒ edycyjnych.
+%description -l pl.UTF-8
+NEdit to edytor tekstu o graficznym interfejsie dla system√≥w X/Motif.
+Jest bardzo prosty w u≈ºyciu, zw≈Çaszcza dla os√≥b zaznajomionych z
+interfejsami w stylu Macintosha czy MS Windows. ≈ÅƒÖczy w sobie pe≈Çne
+wykorzystanie myszy i zarzƒÖdcy okien z wydajno≈õciƒÖ klawiatury, a
+ca≈Ço≈õci dope≈Çnienia ca≈Ça gama potƒô≈ºnych polece≈Ñ edycyjnych.
 
 %prep
 %setup -q
