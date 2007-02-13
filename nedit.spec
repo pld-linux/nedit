@@ -1,7 +1,7 @@
 # TODO
 # - menu Shell items require csh, remove that dependency
 Summary:	Motif/X Window GUI editor
-Summary(pl.UTF-8):   Edytor tekstu z interfejsem graficznym Motif/X Window
+Summary(pl.UTF-8):	Edytor tekstu z interfejsem graficznym Motif/X Window
 Name:		nedit
 Version:	5.5
 Release:	2
